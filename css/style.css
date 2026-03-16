@@ -489,7 +489,7 @@ label {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #2c2420 100%);
+  background: linear-gradient(rgba(28, 25, 23, 0.65), rgba(28, 25, 23, 0.75)), url('../images/hero.jpg') center/cover no-repeat;
   color: var(--bg);
   padding-top: 72px;
 }
@@ -608,6 +608,8 @@ label {
   transition: transform 200ms ease-out, border-color 200ms ease-out;
   border: 2px solid transparent;
   background: linear-gradient(var(--angle, 135deg), var(--primary), var(--secondary), #3d2e24);
+  background-size: cover;
+  background-position: center;
 }
 
 .category-card::after {
@@ -704,6 +706,8 @@ label {
 .product-image {
   aspect-ratio: 4 / 3;
   border-radius: 8px 8px 0 0;
+  background-size: cover;
+  background-position: center;
 }
 
 .product-info {
@@ -773,7 +777,7 @@ label {
 .placeholder-image {
   aspect-ratio: 4 / 3;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary), #3d2e24);
+  background: url('../images/about-mission.jpg') center/cover no-repeat;
 }
 
 /* --------------------------------------------------------------------------
