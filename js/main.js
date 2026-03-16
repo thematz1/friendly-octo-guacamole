@@ -38,15 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      // Full-replace success (register page)
+      if (form.hasAttribute('data-success-replace')) {
+        const successEl = form.parentElement.querySelector('.form-success');
+        if (successEl) {
+          form.style.display = 'none';
+          successEl.style.display = 'block';
+        }
+        return;
+      }
+
+      // Inline confirmation (contact, login)
       const confirmation = form.parentElement.querySelector('.form-confirmation');
       if (!confirmation) return;
 
       confirmation.textContent = form.getAttribute('data-confirm-message');
-      confirmation.style.opacity = '1';
+      confirmation.classList.add('visible');
+      form.reset();
 
       setTimeout(() => {
-        confirmation.style.opacity = '0';
-      }, 3000);
+        confirmation.classList.remove('visible');
+      }, 5000);
     });
   });
 

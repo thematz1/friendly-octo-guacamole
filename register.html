@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Access — LuxeBrand</title>
+  <meta name="description" content="Request membership to LuxeBrand's private brokerage. Access is granted by invitation after a personal review.">
+  <meta property="og:title" content="Request Access — LuxeBrand">
+  <meta property="og:description" content="Apply for membership to our private luxury brokerage">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2216%22%20fill%3D%22%231C1917%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2222%22%20font-family%3D%22Georgia%2C%20serif%22%20font-size%3D%2220%22%20fill%3D%22%23CA8A04%22%20text-anchor%3D%22middle%22%3EL%3C%2Ftext%3E%3C%2Fsvg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="login-layout">
+  <!-- Left Panel: Branding -->
+  <div class="login-branding">
+    <a href="index.html" class="login-logo">LUXEBRAND</a>
+    <p class="login-tagline">Private Brokerage for Luxury Goods</p>
+  </div>
+
+  <!-- Right Panel: Registration Form -->
+  <div class="login-form-panel">
+    <div class="login-card glass-light">
+      <h1>Request Membership</h1>
+      <form data-fake-submit data-success-replace>
+        <div class="form-group">
+          <label for="reg-first">First Name</label>
+          <input type="text" id="reg-first" class="form-input" placeholder="First name" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-last">Last Name</label>
+          <input type="text" id="reg-last" class="form-input" placeholder="Last name" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email</label>
+          <input type="email" id="reg-email" class="form-input" placeholder="Your email" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-phone">Phone</label>
+          <input type="tel" id="reg-phone" class="form-input" placeholder="Your phone number">
+        </div>
+        <div class="form-group">
+          <label for="reg-interest">Area of Interest</label>
+          <select id="reg-interest" class="form-input">
+            <option value="">Select a category</option>
+            <option value="handbags">Handbags</option>
+            <option value="watches">Watches</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="shoes">Shoes</option>
+            <option value="clothing">Designer Clothing</option>
+            <option value="multiple">Multiple Categories</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" class="form-input" placeholder="Create a password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+      </form>
+      <div class="form-success" style="display: none">
+        <div class="form-success-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h2>Request Received</h2>
+        <p>Thank you for your interest in LuxeBrand. A member of our private client team will personally review your application and reach out within 48 hours to discuss next steps.</p>
+        <a href="index.html" class="btn btn-secondary" style="margin-top: 24px">Return to LuxeBrand</a>
+      </div>
+      <hr class="login-divider">
+      <p class="login-signup">Already a member? <a href="login.html">Sign in</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
