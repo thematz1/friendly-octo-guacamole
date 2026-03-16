@@ -225,7 +225,7 @@ h3 {
   transition: border-color 200ms ease-out, box-shadow 200ms ease-out;
 }
 
-.form-input:focus {
+.form-input:focus-visible {
   outline: none;
   border-color: var(--gold);
   box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.15);
@@ -531,24 +531,10 @@ label {
 
 .hero-short {
   min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #2c2420 100%);
-  color: var(--bg);
-  padding-top: 72px;
 }
 
 .hero-40 {
   min-height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #2c2420 100%);
-  color: var(--bg);
-  padding-top: 72px;
 }
 
 /* --------------------------------------------------------------------------
@@ -934,6 +920,7 @@ textarea.form-input {
   color: var(--text-muted);
   font-size: 0.875rem;
   text-decoration: none;
+  transition: color 200ms ease-out;
 }
 
 .login-forgot:hover {
@@ -956,6 +943,7 @@ textarea.form-input {
   color: var(--gold);
   text-decoration: none;
   font-weight: 500;
+  transition: color 200ms ease-out;
 }
 
 @media (max-width: 767px) {
@@ -973,6 +961,10 @@ textarea.form-input {
    21. Reduced Motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
