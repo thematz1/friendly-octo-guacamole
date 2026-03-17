@@ -59,33 +59,10 @@
   }
 
   /* ----------------------------------------------------------
-     Nav Animation — entrance + hide-on-scroll + glass blur ramp
+     Nav Animation — removed (was causing flash/hide bugs)
      ---------------------------------------------------------- */
   function initNavAnimation() {
-    var nav = document.querySelector('.nav');
-    if (!nav) return;
-
-    if (!isReducedMotion && typeof gsap !== 'undefined') {
-      gsap.from(nav, { y: -72, duration: 0.4, ease: 'power2.out' });
-    }
-
-    var lastScrollY = 0;
-    var ticking = false;
-
-    function onScroll() {
-      var currentY = window.scrollY || document.documentElement.scrollTop;
-      if (currentY > lastScrollY && currentY > 100) {
-        nav.classList.add('nav-hidden');
-      } else {
-        nav.classList.remove('nav-hidden');
-      }
-      lastScrollY = currentY;
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', function () {
-      if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
-    }, { passive: true });
+    // Intentionally empty — nav entrance and hide-on-scroll removed
   }
 
   /* ----------------------------------------------------------
@@ -93,6 +70,9 @@
      ---------------------------------------------------------- */
   function initHeroReveal() {
     if (typeof Splitting === 'undefined' || typeof gsap === 'undefined') return;
+    // Mark hero as ready to animate before Splitting wraps chars
+    var hero = document.querySelector('.hero');
+    if (hero) hero.classList.add('will-animate');
     Splitting();
     if (isReducedMotion) {
       document.querySelectorAll('.hero [data-splitting] .char').forEach(function (c) { c.style.opacity = 1; c.style.transform = 'none'; });
@@ -415,6 +395,7 @@
     if (typeof Splitting === 'undefined' || typeof gsap === 'undefined') return;
     var logo = document.querySelector('.nav-logo[data-splitting]');
     if (!logo) return;
+    logo.classList.add('will-animate');
     Splitting({ target: logo });
     logo.classList.add('is-revealed');
     if (isReducedMotion) return;
