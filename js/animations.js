@@ -282,6 +282,37 @@
   }
 
   /* ----------------------------------------------------------
+     Footer Scroll Animations
+     ---------------------------------------------------------- */
+  function initFooterAnimations() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    var footerCols = gsap.utils.toArray('.footer-grid > div');
+    if (footerCols.length) {
+      gsap.from(footerCols, {
+        scrollTrigger: { trigger: '.footer', start: 'top 90%', toggleActions: 'play none none none' },
+        y: 30, opacity: 0, duration: 0.6, stagger: 0.2, ease: 'power2.out'
+      });
+    }
+
+    var socialIcons = gsap.utils.toArray('.footer-social a');
+    if (socialIcons.length) {
+      gsap.from(socialIcons, {
+        scrollTrigger: { trigger: '.footer-social', start: 'top 95%', toggleActions: 'play none none none' },
+        scale: 0, duration: 0.5, stagger: 0.1, ease: 'back.out(2)'
+      });
+    }
+
+    var copyright = document.querySelector('.footer-copyright');
+    if (copyright) {
+      gsap.from(copyright, {
+        scrollTrigger: { trigger: copyright, start: 'top 95%', toggleActions: 'play none none none' },
+        opacity: 0, duration: 0.6, delay: 0.6, ease: 'power2.out'
+      });
+    }
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
