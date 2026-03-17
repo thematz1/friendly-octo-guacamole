@@ -227,6 +227,61 @@
   }
 
   /* ----------------------------------------------------------
+     Floating Labels
+     ---------------------------------------------------------- */
+  function initFloatingLabels() {
+    document.querySelectorAll('.form-group .form-input').forEach(function (input) {
+      if (input.value) input.classList.add('has-value');
+      input.addEventListener('input', function () {
+        if (input.value) { input.classList.add('has-value'); }
+        else { input.classList.remove('has-value'); }
+      });
+      input.addEventListener('animationstart', function (e) {
+        if (e.animationName === 'onAutoFillStart') { input.classList.add('has-value'); }
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------
+     Contact Page Scroll Animations
+     ---------------------------------------------------------- */
+  function initContactAnimations() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    var formGroups = gsap.utils.toArray('.contact-form-card .form-group');
+    if (formGroups.length) {
+      gsap.from(formGroups, {
+        scrollTrigger: { trigger: '.contact-form-card', start: 'top 80%', toggleActions: 'play none none none' },
+        y: 20, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out'
+      });
+    }
+
+    var contactHero = document.querySelector('.hero-40');
+    if (contactHero) {
+      gsap.to(contactHero, {
+        scrollTrigger: { trigger: contactHero, start: 'top top', end: 'bottom top', scrub: true },
+        backgroundPositionY: '40%', ease: 'none'
+      });
+    }
+
+    var detailItems = gsap.utils.toArray('.contact-details > *');
+    if (detailItems.length) {
+      gsap.from(detailItems, {
+        scrollTrigger: { trigger: '.contact-details', start: 'top 80%', toggleActions: 'play none none none' },
+        y: 20, opacity: 0, duration: 0.5, stagger: 0.15, ease: 'power2.out'
+      });
+    }
+
+    var socialIcons = gsap.utils.toArray('.contact-details .footer-social a');
+    if (socialIcons.length) {
+      gsap.from(socialIcons, {
+        scrollTrigger: { trigger: '.contact-details .footer-social', start: 'top 90%', toggleActions: 'play none none none' },
+        scale: 0, duration: 0.5, stagger: 0.1, ease: 'back.out(2)'
+      });
+    }
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
