@@ -1321,7 +1321,7 @@ textarea.form-input {
 .login-card { will-change: transform, opacity; }
 .login-logo, .login-tagline { will-change: transform, opacity; }
 
-.login-card .form-success {
+.login-card .form-success.is-visible {
   animation: successReveal 0.6s ease forwards;
 }
 
@@ -1329,7 +1329,7 @@ textarea.form-input {
   color: var(--gold);
 }
 
-.login-card .form-success .form-success-icon svg {
+.login-card .form-success.is-visible .form-success-icon svg {
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
   animation: drawCheckmark 0.8s ease 0.3s forwards;

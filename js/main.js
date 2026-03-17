@@ -26,6 +26,7 @@ function initMain() {
         if (successEl) {
           form.style.display = 'none';
           successEl.style.display = 'block';
+          successEl.classList.add('is-visible');
         }
         return;
       }
