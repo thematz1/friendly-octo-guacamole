@@ -1277,8 +1277,9 @@ In `contact.html`, update the `.form-confirmation` div:
 </div>
 ```
 
-Add CSS for checkmark draw animation:
+Add CSS for checkmark draw animation and form field collapse:
 ```css
+/* Checkmark draw */
 .checkmark-icon .checkmark-path,
 .checkmark-icon .checkmark-check {
   stroke-dasharray: 100;
@@ -1296,7 +1297,32 @@ Add CSS for checkmark draw animation:
 @keyframes drawCheckmark {
   to { stroke-dashoffset: 0; }
 }
+
+/* Contact form field collapse on success */
+.form-confirmation.visible {
+  animation: scaleIn 0.4s ease forwards;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 ```
+
+In the contact form's success handler (in `main.js`), before showing the confirmation, collapse form fields:
+
+```javascript
+// In the form submit handler, before showing confirmation:
+var formGroups = form.querySelectorAll('.form-group');
+formGroups.forEach(function (g, i) {
+  g.style.transition = 'opacity 0.3s ease ' + (i * 0.05) + 's, max-height 0.3s ease ' + (i * 0.05) + 's';
+  g.style.opacity = '0';
+  g.style.maxHeight = '0';
+  g.style.overflow = 'hidden';
+});
+```
+
+Add this logic to the contact form branch in `main.js` initMain's form handler, right before `confirmation.classList.add('visible')`. The form groups collapse upward, then the confirmation message scales in.
 
 Add `initFloatingLabels()` and `initContactAnimations()` to DOMContentLoaded and reinit.
 
@@ -1911,6 +1937,7 @@ git commit -m "feat: add nav logo character shimmer animation"
     renderer.domElement.setAttribute('aria-hidden', 'true');
     renderer.domElement.setAttribute('role', 'presentation');
     container.style.position = 'relative';
+    container.classList.add('has-particles');
     container.insertBefore(renderer.domElement, container.firstChild);
 
     var geometry = new THREE.BufferGeometry();
@@ -2086,13 +2113,7 @@ Add to `style.css`:
 }
 ```
 
-In `particles.js`, after inserting the canvas, add the `.has-particles` class to the container:
-
-```javascript
-container.classList.add('has-particles');
-```
-
-This ensures the CSS background image on `.hero` and the CSS gradient animation on `.login-branding` are suppressed when Three.js particles are active. If WebGL is unavailable (fallback), the class is never added and the original backgrounds remain.
+The `.has-particles` class is added in `createParticleScene()` (line `container.classList.add('has-particles')`), ensuring the CSS background image on `.hero` and the CSS gradient animation on `.login-branding` are suppressed when Three.js particles are active. If WebGL is unavailable (fallback), the class is never added and the original backgrounds remain.
 
 - [ ] **Step 3: Commit**
 
@@ -2315,7 +2336,9 @@ function initMain() {
       var confirmation = form.parentElement.querySelector('.form-confirmation');
       if (!confirmation) return;
 
-      confirmation.textContent = form.getAttribute('data-confirm-message');
+      var span = confirmation.querySelector('span');
+      if (span) span.textContent = form.getAttribute('data-confirm-message');
+      else confirmation.textContent = form.getAttribute('data-confirm-message');
       confirmation.classList.add('visible');
       form.reset();
 
@@ -2362,6 +2385,9 @@ git commit -m "feat: implement Barba.js page transitions with gold wipe effect"
 **Files:**
 - Modify: `js/animations.js`
 - Modify: `css/style.css`
+- Modify: `js/main.js`
+- Modify: `login.html`
+- Modify: `register.html`
 
 - [ ] **Step 1: Add auth page entrance CSS**
 
@@ -2563,11 +2589,11 @@ Add to `main.js` init function:
 }
 ```
 
-- [ ] **Step 5: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
-git add js/animations.js css/style.css js/main.js
-git commit -m "feat: add auth page entrance animations and button hover sweep"
+git add js/animations.js css/style.css js/main.js login.html register.html
+git commit -m "feat: add auth page animations, password toggle, spinner, and button sweep"
 ```
 
 ---
