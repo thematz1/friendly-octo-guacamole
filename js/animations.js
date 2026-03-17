@@ -73,6 +73,39 @@
   }
 
   /* ----------------------------------------------------------
+     Nav Animation — entrance + hide-on-scroll + glass blur ramp
+     ---------------------------------------------------------- */
+  function initNavAnimation() {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+
+    if (typeof gsap !== 'undefined') {
+      gsap.from(nav, { y: -72, duration: 0.4, ease: 'power2.out' });
+    }
+
+    var lastScrollY = 0;
+    var ticking = false;
+
+    function onScroll() {
+      var currentY = window.scrollY || document.documentElement.scrollTop;
+      if (currentY > lastScrollY && currentY > 100) {
+        nav.classList.add('nav-hidden');
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
+      var blur = Math.min(20, 8 + (currentY / 100) * 12);
+      nav.style.backdropFilter = 'blur(' + blur + 'px)';
+      nav.style.webkitBackdropFilter = 'blur(' + blur + 'px)';
+      lastScrollY = currentY;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+    }, { passive: true });
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {

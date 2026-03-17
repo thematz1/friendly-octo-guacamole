@@ -298,6 +298,11 @@ label {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--glass-border);
+  transition: transform 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+}
+
+.nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .nav-inner {
