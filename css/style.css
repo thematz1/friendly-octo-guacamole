@@ -1279,6 +1279,36 @@ textarea.form-input {
 }
 
 /* --------------------------------------------------------------------------
+   Auth Page Animations
+   -------------------------------------------------------------------------- */
+.login-card { will-change: transform, opacity; transform-style: preserve-3d; transition: transform 0.6s ease; }
+.login-logo, .login-tagline { will-change: transform, opacity; }
+.login-card.is-flipped { transform: rotateY(180deg); }
+.login-card .form-success { backface-visibility: hidden; transform: rotateY(180deg); }
+
+.login-spinner {
+  animation: spinnerDash 1.5s ease-in-out infinite, spinnerRotate 1.5s linear infinite;
+  margin-right: 8px; vertical-align: middle;
+}
+@keyframes spinnerDash { 0% { stroke-dashoffset: 88; } 50% { stroke-dashoffset: 22; } 100% { stroke-dashoffset: 88; } }
+@keyframes spinnerRotate { 100% { transform: rotate(360deg); } }
+
+.password-wrapper { position: relative; }
+.password-toggle {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px;
+  transition: color 0.2s ease;
+}
+.password-toggle:hover { color: var(--gold); }
+
+.btn-primary {
+  background: linear-gradient(to right, var(--gold-hover) 50%, var(--gold) 50%);
+  background-size: 200% 100%; background-position: right;
+  transition: background-position 0.4s ease, color 0.2s ease, box-shadow 0.3s ease;
+}
+.btn-primary:hover { background-position: left; }
+
+/* --------------------------------------------------------------------------
    Transition Overlay (Barba.js)
    -------------------------------------------------------------------------- */
 .transition-overlay {

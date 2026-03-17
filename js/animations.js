@@ -421,6 +421,29 @@
   }
 
   /* ----------------------------------------------------------
+     Auth Page Animations
+     ---------------------------------------------------------- */
+  function initAuthAnimations() {
+    if (typeof gsap === 'undefined') return;
+    var logo = document.querySelector('.login-logo');
+    var tagline = document.querySelector('.login-tagline');
+    if (logo) {
+      if (typeof Splitting !== 'undefined') {
+        Splitting({ target: logo });
+        var chars = logo.querySelectorAll('.char');
+        gsap.from(chars, { opacity: 0, y: 20, duration: 0.5, stagger: 0.04, ease: 'power2.out', delay: 0.3 });
+      } else { gsap.from(logo, { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', delay: 0.3 }); }
+    }
+    if (tagline) gsap.from(tagline, { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', delay: 0.8 });
+    var card = document.querySelector('.login-card');
+    if (card) gsap.from(card, { scale: 0.95, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.3 });
+    var formGroups = document.querySelectorAll('.login-card .form-group');
+    if (formGroups.length) gsap.from(formGroups, { y: 15, opacity: 0, duration: 0.4, stagger: 0.1, ease: 'power2.out', delay: 0.6 });
+    var submitBtn = document.querySelector('.login-card .btn');
+    if (submitBtn) gsap.from(submitBtn, { opacity: 0, y: 10, duration: 0.4, ease: 'power2.out', delay: 1.0 });
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -439,6 +462,7 @@
     initProgressDots();
     initMobileMenuStagger();
     initLogoAnimation();
+    initAuthAnimations();
   });
 
   // Expose for Barba re-init
@@ -462,6 +486,7 @@
       initProgressDots();
       initMobileMenuStagger();
       initLogoAnimation();
+      initAuthAnimations();
     }
   };
 
