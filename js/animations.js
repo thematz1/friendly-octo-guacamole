@@ -106,6 +106,24 @@
   }
 
   /* ----------------------------------------------------------
+     Hero Reveal — Splitting.js character animation
+     ---------------------------------------------------------- */
+  function initHeroReveal() {
+    if (typeof Splitting === 'undefined' || typeof gsap === 'undefined') return;
+    Splitting();
+    document.querySelectorAll('.hero [data-splitting]').forEach(function (el) {
+      var chars = el.querySelectorAll('.char');
+      gsap.to(chars, { opacity: 1, y: 0, duration: 0.6, stagger: 0.03, ease: 'power3.out', delay: 0.3 });
+    });
+    document.querySelectorAll('.hero-tagline.will-reveal').forEach(function (el) {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 1.0 });
+    });
+    document.querySelectorAll('.hero-ctas.will-reveal').forEach(function (el) {
+      gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 1.2 });
+    });
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
