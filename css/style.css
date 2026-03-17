@@ -653,6 +653,7 @@ label {
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   padding: 16px 0;
+  perspective: 800px;
 }
 
 .scroll-track::-webkit-scrollbar {
@@ -865,6 +866,7 @@ label {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  perspective: 800px;
 }
 
 @media (min-width: 768px) {

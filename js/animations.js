@@ -313,6 +313,26 @@
   }
 
   /* ----------------------------------------------------------
+     3D Tilt Cards
+     ---------------------------------------------------------- */
+  function initTiltCards() {
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    document.querySelectorAll('.category-card, .value-card').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = 'perspective(800px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg) scale(1.02)';
+      });
+      card.addEventListener('mouseleave', function () {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(card, { rotateX: 0, rotateY: 0, scale: 1, duration: 0.5, ease: 'power2.out' });
+        } else { card.style.transform = ''; }
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -326,6 +346,7 @@
     initContactAnimations();
     initFooterAnimations();
     initFloatingLabels();
+    initTiltCards();
   });
 
   // Expose for Barba re-init
@@ -345,6 +366,7 @@
       initContactAnimations();
       initFooterAnimations();
       initFloatingLabels();
+      initTiltCards();
     },
     getLenis: function () { return lenis; }
   };
