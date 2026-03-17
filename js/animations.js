@@ -1,32 +1,15 @@
 /* ============================================================
-   animations.js — GSAP ScrollTrigger, Lenis, magnetic buttons,
+   animations.js — GSAP ScrollTrigger, magnetic buttons,
                    floating labels, scroll animations
    ============================================================ */
 (function () {
 
   /* ----------------------------------------------------------
-     Lenis Smooth Scroll
+     ScrollTrigger Setup (native scroll — no Lenis hijack)
      ---------------------------------------------------------- */
-  var lenis = null;
-
-  function initLenis() {
-    if (window.innerWidth < 768) return;
-    if (typeof Lenis === 'undefined') return;
-
-    lenis = new Lenis({
-      lerp: 0.1,
-      smoothWheel: true
-    });
-
+  function initScrollTrigger() {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
-
-      lenis.on('scroll', ScrollTrigger.update);
-
-      gsap.ticker.add(function (time) {
-        lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
     }
   }
 
@@ -93,9 +76,6 @@
       } else {
         nav.classList.remove('nav-hidden');
       }
-      var blur = Math.min(20, 8 + (currentY / 100) * 12);
-      nav.style.backdropFilter = 'blur(' + blur + 'px)';
-      nav.style.webkitBackdropFilter = 'blur(' + blur + 'px)';
       lastScrollY = currentY;
       ticking = false;
     }
@@ -338,27 +318,38 @@
   function initDragScroll() {
     var track = document.querySelector('.scroll-track');
     if (!track) return;
-    var isDragging = false, startX = 0, scrollLeft = 0, velocity = 0, lastX = 0, lastTime = 0, momentumId = null;
+    var isDragging = false, hasDragged = false, startX = 0, scrollLeft = 0, velocity = 0, lastX = 0, lastTime = 0, momentumId = null;
 
     track.addEventListener('mousedown', function (e) {
-      isDragging = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+      isDragging = true; hasDragged = false;
+      startX = e.pageX; scrollLeft = track.scrollLeft;
       lastX = e.pageX; lastTime = Date.now(); velocity = 0;
       if (momentumId) cancelAnimationFrame(momentumId);
-      track.style.cursor = 'grabbing'; track.style.scrollSnapType = 'none';
+      track.classList.add('is-dragging');
     });
 
     document.addEventListener('mousemove', function (e) {
-      if (!isDragging) return; e.preventDefault();
-      var x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX);
+      if (!isDragging) return;
+      e.preventDefault();
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 3) hasDragged = true;
+      track.scrollLeft = scrollLeft - dx;
       var now = Date.now(); var dt = now - lastTime;
       if (dt > 0) velocity = (e.pageX - lastX) / dt;
       lastX = e.pageX; lastTime = now;
     });
 
+    // Prevent clicks on links inside track after a drag
+    track.addEventListener('click', function (e) {
+      if (hasDragged) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+
     function stopDrag() {
-      if (!isDragging) return; isDragging = false; track.style.cursor = '';
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('is-dragging');
       function momentum() {
-        if (Math.abs(velocity) < 0.01) { track.style.scrollSnapType = 'x mandatory'; return; }
+        if (Math.abs(velocity) < 0.01) { return; }
         track.scrollLeft -= velocity * 16; velocity *= 0.95;
         momentumId = requestAnimationFrame(momentum);
       }
@@ -396,7 +387,7 @@
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
-    initLenis();
+    initScrollTrigger();
     initScrollProgress();
     initMagnetic();
     initNavAnimation();
@@ -414,11 +405,10 @@
   // Expose for Barba re-init
   window.LuxeAnimations = {
     reinit: function () {
-      if (lenis) { lenis.destroy(); lenis = null; }
       if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.getAll().forEach(function (t) { t.kill(); });
       }
-      initLenis();
+      initScrollTrigger();
       initScrollProgress();
       initMagnetic();
       initNavAnimation();
@@ -431,8 +421,7 @@
       initTiltCards();
       initDragScroll();
       initProgressDots();
-    },
-    getLenis: function () { return lenis; }
+    }
   };
 
 })();
