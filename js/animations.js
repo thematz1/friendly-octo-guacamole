@@ -496,6 +496,7 @@
 
   // Expose for Barba re-init
   window.LuxeAnimations = {
+    getLenis: function () { return null; },
     reinit: function () {
       if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.getAll().forEach(function (t) { t.kill(); });
