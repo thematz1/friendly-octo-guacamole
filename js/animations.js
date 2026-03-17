@@ -384,6 +384,24 @@
   }
 
   /* ----------------------------------------------------------
+     Mobile Menu Stagger
+     ---------------------------------------------------------- */
+  function initMobileMenuStagger() {
+    var hamburger = document.querySelector('.nav-hamburger');
+    var mobileMenu = document.querySelector('.mobile-menu');
+    if (!hamburger || !mobileMenu || typeof gsap === 'undefined') return;
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        if (m.attributeName === 'class' && mobileMenu.classList.contains('open')) {
+          var links = mobileMenu.querySelectorAll('a');
+          gsap.from(links, { x: 30, opacity: 0, duration: 0.4, stagger: 0.1, ease: 'power2.out' });
+        }
+      });
+    });
+    observer.observe(mobileMenu, { attributes: true });
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -400,6 +418,7 @@
     initTiltCards();
     initDragScroll();
     initProgressDots();
+    initMobileMenuStagger();
   });
 
   // Expose for Barba re-init
@@ -421,6 +440,7 @@
       initTiltCards();
       initDragScroll();
       initProgressDots();
+      initMobileMenuStagger();
     }
   };
 

@@ -8,27 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ----------------------------------------------------------
      Mobile Navigation
      ---------------------------------------------------------- */
-  const hamburger = document.querySelector('.nav-hamburger');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const overlay = document.querySelector('.mobile-overlay');
-  const closeBtn = document.querySelector('.mobile-menu-close');
+  var hamburger = document.querySelector('.nav-hamburger');
+  var mobileMenu = document.querySelector('.mobile-menu');
+  var overlay = document.querySelector('.mobile-overlay');
 
   function openMenu() {
-    mobileMenu.classList.add('open');
-    overlay.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
+    mobileMenu.classList.add('open'); overlay.classList.add('open');
+    hamburger.classList.add('is-open'); hamburger.setAttribute('aria-expanded', 'true');
   }
-
   function closeMenu() {
-    mobileMenu.classList.remove('open');
-    overlay.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('open'); overlay.classList.remove('open');
+    hamburger.classList.remove('is-open'); hamburger.setAttribute('aria-expanded', 'false');
   }
-
-  if (hamburger && mobileMenu && overlay && closeBtn) {
-    hamburger.addEventListener('click', openMenu);
+  if (hamburger && mobileMenu && overlay) {
+    hamburger.addEventListener('click', function () {
+      if (mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
+    });
     overlay.addEventListener('click', closeMenu);
-    closeBtn.addEventListener('click', closeMenu);
   }
 
   /* ----------------------------------------------------------

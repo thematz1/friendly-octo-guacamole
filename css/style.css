@@ -388,6 +388,15 @@ label {
   }
 }
 
+/* Hamburger Morph */
+.nav-hamburger svg line {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.nav-hamburger.is-open .hamburger-top { transform: translate(0, 6px) rotate(45deg); }
+.nav-hamburger.is-open .hamburger-mid { opacity: 0; }
+.nav-hamburger.is-open .hamburger-bot { transform: translate(0, -6px) rotate(-45deg); }
+
 /* Mobile Menu */
 .mobile-menu {
   position: fixed;
@@ -418,21 +427,6 @@ label {
 .mobile-overlay.open {
   opacity: 1;
   pointer-events: auto;
-}
-
-.mobile-menu-close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: none;
-  color: var(--bg);
-  cursor: pointer;
-  position: absolute;
-  top: 14px;
-  right: 14px;
 }
 
 .mobile-menu a {
