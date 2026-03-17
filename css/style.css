@@ -367,9 +367,16 @@ label {
   transition: width 200ms ease-out;
 }
 
-.nav-links a:hover::after,
+.nav-links a:hover::after {
+  width: 100%;
+}
+
 .nav-links a.active::after {
   width: 100%;
+  animation: activePulse 1.5s ease-out 0.5s 1;
+}
+@keyframes activePulse {
+  0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; }
 }
 
 /* Hamburger */
