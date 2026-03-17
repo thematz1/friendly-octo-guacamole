@@ -547,6 +547,8 @@ label {
    12. Hero
    -------------------------------------------------------------------------- */
 .hero {
+  position: relative;
+  overflow: hidden;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -557,9 +559,15 @@ label {
   padding-top: 72px;
 }
 
+.hero canvas { position: absolute; inset: 0; }
+
 .hero-content {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
 }
+
+.hero.has-particles { background: var(--primary); }
 
 .hero h1 {
   font-size: 3rem;
@@ -999,6 +1007,8 @@ textarea.form-input {
 }
 
 .login-branding {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1008,6 +1018,10 @@ textarea.form-input {
   animation: gradientShift 8s ease-in-out infinite;
   padding: 48px;
 }
+
+.login-branding canvas { position: absolute; inset: 0; }
+.login-branding > *:not(canvas) { position: relative; z-index: 1; }
+.login-branding.has-particles { background: var(--primary); animation: none; }
 
 @keyframes gradientShift {
   0% {
