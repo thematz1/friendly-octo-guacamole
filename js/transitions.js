@@ -1,15 +1,10 @@
 (function () {
   if (typeof barba === 'undefined') return;
 
-  var overlay = document.createElement('div');
-  overlay.className = 'transition-overlay';
-  overlay.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(overlay);
-
   barba.init({
     preventRunning: true,
     transitions: [{
-      name: 'gold-wipe',
+      name: 'instant',
       before: function (data) {
         var nav = document.querySelector('.nav');
         var mobileOverlay = document.querySelector('.mobile-overlay');
@@ -24,25 +19,9 @@
       },
       leave: function (data) {
         if (window.LuxeParticles) window.LuxeParticles.dispose();
-        return new Promise(function (resolve) {
-          if (typeof gsap !== 'undefined') {
-            gsap.to(overlay, { scaleX: 1, duration: 0.6, ease: 'power2.inOut', onComplete: resolve });
-          } else { resolve(); }
-        });
       },
       enter: function (data) {
         window.scrollTo(0, 0);
-        if (window.LuxeAnimations) {
-          var lenis = window.LuxeAnimations.getLenis();
-          if (lenis) lenis.scrollTo(0, { immediate: true });
-        }
-        return new Promise(function (resolve) {
-          if (typeof gsap !== 'undefined') {
-            gsap.to(overlay, { scaleX: 0, duration: 0.6, ease: 'power2.inOut', transformOrigin: 'right',
-              onComplete: function () { overlay.style.transformOrigin = 'left'; resolve(); }
-            });
-          } else { resolve(); }
-        });
       },
       after: function (data) {
         var nav = document.querySelector('.nav');
