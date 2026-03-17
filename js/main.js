@@ -1,4 +1,6 @@
-function initMain() {
+function initNavOnce() {
+  if (initNavOnce.done) return;
+  initNavOnce.done = true;
   var hamburger = document.querySelector('.nav-hamburger');
   var mobileMenu = document.querySelector('.mobile-menu');
   var overlay = document.querySelector('.mobile-overlay');
@@ -17,6 +19,10 @@ function initMain() {
     });
     overlay.addEventListener('click', closeMenu);
   }
+}
+
+function initMain() {
+  initNavOnce();
 
   document.querySelectorAll('form[data-fake-submit]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
