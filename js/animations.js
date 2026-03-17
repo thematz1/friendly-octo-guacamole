@@ -319,15 +319,32 @@
     initLenis();
     initScrollProgress();
     initMagnetic();
+    initNavAnimation();
+    initHeroReveal();
+    initHomepageAnimations();
+    initAboutAnimations();
+    initContactAnimations();
+    initFooterAnimations();
+    initFloatingLabels();
   });
 
   // Expose for Barba re-init
   window.LuxeAnimations = {
     reinit: function () {
       if (lenis) { lenis.destroy(); lenis = null; }
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.getAll().forEach(function (t) { t.kill(); });
+      }
       initLenis();
       initScrollProgress();
       initMagnetic();
+      initNavAnimation();
+      initHeroReveal();
+      initHomepageAnimations();
+      initAboutAnimations();
+      initContactAnimations();
+      initFooterAnimations();
+      initFloatingLabels();
     },
     getLenis: function () { return lenis; }
   };
