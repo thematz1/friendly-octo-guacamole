@@ -178,6 +178,55 @@
   }
 
   /* ----------------------------------------------------------
+     About Page Scroll Animations
+     ---------------------------------------------------------- */
+  function initAboutAnimations() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    var missionGrid = document.querySelector('.mission-grid');
+    if (missionGrid) {
+      var cols = missionGrid.children;
+      if (cols[0]) gsap.from(cols[0], {
+        scrollTrigger: { trigger: missionGrid, start: 'top 70%', toggleActions: 'play none none none' },
+        x: -40, opacity: 0, duration: 0.8, ease: 'power2.out'
+      });
+      if (cols[1]) gsap.from(cols[1], {
+        scrollTrigger: { trigger: missionGrid, start: 'top 70%', toggleActions: 'play none none none' },
+        x: 40, opacity: 0, duration: 0.8, ease: 'power2.out'
+      });
+
+      var img = document.querySelector('.placeholder-image');
+      if (img) {
+        gsap.from(img, {
+          scrollTrigger: { trigger: img, start: 'top 80%', toggleActions: 'play none none none' },
+          clipPath: 'inset(0 100% 0 0)', duration: 1, ease: 'power2.inOut'
+        });
+        ScrollTrigger.create({
+          trigger: img,
+          start: 'top 70%',
+          onEnter: function () { img.classList.add('border-drawn'); }
+        });
+      }
+    }
+
+    var aboutHero = document.querySelector('.hero-short');
+    if (aboutHero) {
+      gsap.to(aboutHero, {
+        scrollTrigger: { trigger: aboutHero, start: 'top top', end: 'bottom top', scrub: true },
+        backgroundPositionY: '40%', ease: 'none'
+      });
+    }
+
+    var valueCards = gsap.utils.toArray('.value-card');
+    if (valueCards.length) {
+      gsap.from(valueCards, {
+        scrollTrigger: { trigger: '.values-grid', start: 'top 80%', toggleActions: 'play none none none' },
+        scale: 0.9, opacity: 0, duration: 0.6, stagger: 0.2, ease: 'power2.out'
+      });
+    }
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
