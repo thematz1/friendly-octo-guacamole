@@ -1004,6 +1004,14 @@ textarea.form-input {
   gap: 8px;
 }
 
+.contact-detail-item p { position: relative; display: inline-block; }
+.contact-detail-item a, .contact-detail-item p { position: relative; }
+.contact-details a::after, .contact-detail-item p::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+  background: var(--gold); transition: width 0.3s ease;
+}
+.contact-details a:hover::after, .contact-detail-item:hover p::after { width: 100%; }
+
 /* --------------------------------------------------------------------------
    20. Login
    -------------------------------------------------------------------------- */
