@@ -421,6 +421,18 @@
   }
 
   /* ----------------------------------------------------------
+     Scroll Indicator
+     ---------------------------------------------------------- */
+  function initScrollIndicator() {
+    var indicator = document.querySelector('.scroll-indicator');
+    if (!indicator) return;
+    function onScroll() {
+      if (window.scrollY > 50) { indicator.classList.add('hidden'); window.removeEventListener('scroll', onScroll); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ----------------------------------------------------------
      Auth Page Animations
      ---------------------------------------------------------- */
   function initAuthAnimations() {
@@ -463,6 +475,7 @@
     initMobileMenuStagger();
     initLogoAnimation();
     initAuthAnimations();
+    initScrollIndicator();
   });
 
   // Expose for Barba re-init
@@ -487,6 +500,7 @@
       initMobileMenuStagger();
       initLogoAnimation();
       initAuthAnimations();
+      initScrollIndicator();
     }
   };
 

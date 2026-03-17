@@ -1279,6 +1279,19 @@ textarea.form-input {
 }
 
 /* --------------------------------------------------------------------------
+   Scroll Indicator
+   -------------------------------------------------------------------------- */
+.scroll-indicator {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  color: var(--gold); animation: scrollPulse 2s ease-in-out infinite; transition: opacity 0.5s ease;
+}
+.scroll-indicator.hidden { opacity: 0; pointer-events: none; }
+@keyframes scrollPulse {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50% { transform: translateX(-50%) translateY(8px); opacity: 0.5; }
+}
+
+/* --------------------------------------------------------------------------
    Auth Page Animations
    -------------------------------------------------------------------------- */
 .login-card { will-change: transform, opacity; transform-style: preserve-3d; transition: transform 0.6s ease; }
