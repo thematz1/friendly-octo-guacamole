@@ -124,6 +124,60 @@
   }
 
   /* ----------------------------------------------------------
+     Homepage Scroll Animations
+     ---------------------------------------------------------- */
+  function initHomepageAnimations() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    gsap.utils.toArray('.intro-text').forEach(function (el) {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        opacity: 0, y: 30, duration: 0.8, ease: 'power2.out'
+      });
+      gsap.to(el, {
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true },
+        y: -40
+      });
+    });
+
+    var categoryCards = gsap.utils.toArray('.category-card');
+    if (categoryCards.length) {
+      gsap.from(categoryCards, {
+        scrollTrigger: { trigger: '.scroll-track', start: 'top 80%', toggleActions: 'play none none none' },
+        x: 60, opacity: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out'
+      });
+    }
+
+    var productCards = gsap.utils.toArray('.product-card');
+    if (productCards.length) {
+      gsap.from(productCards, {
+        scrollTrigger: { trigger: '.featured-grid', start: 'top 80%', toggleActions: 'play none none none' },
+        y: 40, opacity: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out'
+      });
+      gsap.utils.toArray('.product-image').forEach(function (img) {
+        gsap.from(img, {
+          scrollTrigger: { trigger: img, start: 'top 85%', toggleActions: 'play none none none' },
+          clipPath: 'inset(0 100% 0 0)', duration: 0.8, ease: 'power2.inOut'
+        });
+      });
+    }
+
+    var trustItems = gsap.utils.toArray('.trust-item');
+    if (trustItems.length) {
+      gsap.from(trustItems, {
+        scrollTrigger: { trigger: '.trust-grid', start: 'top 80%', toggleActions: 'play none none none' },
+        opacity: 0, y: 30, duration: 0.6, stagger: 0.2, ease: 'power2.out'
+      });
+      gsap.utils.toArray('.trust-line').forEach(function (line) {
+        gsap.from(line, {
+          scrollTrigger: { trigger: line, start: 'top 85%', toggleActions: 'play none none none' },
+          width: 0, duration: 0.8, ease: 'power2.out'
+        });
+      });
+    }
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
