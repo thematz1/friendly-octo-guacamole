@@ -1037,6 +1037,91 @@ textarea.form-input {
 }
 
 /* --------------------------------------------------------------------------
+   Custom Cursor
+   -------------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  body.cursor-ready {
+    cursor: none;
+  }
+
+  body.cursor-ready a,
+  body.cursor-ready button,
+  body.cursor-ready [role="button"] {
+    cursor: none;
+  }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+}
+
+.cursor-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor-circle.is-hovering {
+  width: 60px;
+  height: 60px;
+}
+
+.cursor-circle.is-morph {
+  width: 80px;
+  height: 80px;
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.cursor-circle .cursor-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--bg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-circle.is-morph .cursor-text {
+  opacity: 1;
+}
+
+.cursor-circle.over-glass {
+  mix-blend-mode: normal;
+  opacity: 0.9;
+}
+
+.cursor-dot.over-glass {
+  mix-blend-mode: normal;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
    21. Reduced Motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
