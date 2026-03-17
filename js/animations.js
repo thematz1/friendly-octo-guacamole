@@ -384,6 +384,25 @@
   }
 
   /* ----------------------------------------------------------
+     Logo Animation
+     ---------------------------------------------------------- */
+  function initLogoAnimation() {
+    if (typeof Splitting === 'undefined' || typeof gsap === 'undefined') return;
+    var logo = document.querySelector('.nav-logo[data-splitting]');
+    if (!logo) return;
+    Splitting({ target: logo });
+    logo.classList.add('is-revealed');
+    var chars = logo.querySelectorAll('.char');
+    gsap.from(chars, { opacity: 0, duration: 0.4, stagger: 0.05, ease: 'power2.out', delay: 0.2 });
+    logo.addEventListener('mouseenter', function () {
+      gsap.fromTo(chars, { color: '' },
+        { color: 'var(--gold-hover)', duration: 0.3, stagger: 0.04, ease: 'power2.out',
+          onComplete: function () { gsap.to(chars, { color: '', duration: 0.3, stagger: 0.04 }); }
+        });
+    });
+  }
+
+  /* ----------------------------------------------------------
      Mobile Menu Stagger
      ---------------------------------------------------------- */
   function initMobileMenuStagger() {
@@ -419,6 +438,7 @@
     initDragScroll();
     initProgressDots();
     initMobileMenuStagger();
+    initLogoAnimation();
   });
 
   // Expose for Barba re-init
@@ -441,6 +461,7 @@
       initDragScroll();
       initProgressDots();
       initMobileMenuStagger();
+      initLogoAnimation();
     }
   };
 

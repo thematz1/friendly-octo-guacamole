@@ -329,6 +329,9 @@ label {
   letter-spacing: 0.05em;
 }
 
+.nav-logo .char { display: inline-block; opacity: 0; }
+.nav-logo.is-revealed .char { opacity: 1; }
+
 .nav-links {
   display: none;
   list-style: none;
