@@ -4,6 +4,8 @@
    ============================================================ */
 (function () {
 
+  var isReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   /* ----------------------------------------------------------
      ScrollTrigger Setup (native scroll — no Lenis hijack)
      ---------------------------------------------------------- */
@@ -35,6 +37,7 @@
      Magnetic Buttons
      ---------------------------------------------------------- */
   function initMagnetic() {
+    if (isReducedMotion) return;
     if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
     document.querySelectorAll('.btn, .nav-links a, .footer-links a, .footer-social a, .scroll-arrow').forEach(function (el) {
@@ -62,7 +65,7 @@
     var nav = document.querySelector('.nav');
     if (!nav) return;
 
-    if (typeof gsap !== 'undefined') {
+    if (!isReducedMotion && typeof gsap !== 'undefined') {
       gsap.from(nav, { y: -72, duration: 0.4, ease: 'power2.out' });
     }
 
@@ -91,6 +94,11 @@
   function initHeroReveal() {
     if (typeof Splitting === 'undefined' || typeof gsap === 'undefined') return;
     Splitting();
+    if (isReducedMotion) {
+      document.querySelectorAll('.hero [data-splitting] .char').forEach(function (c) { c.style.opacity = 1; c.style.transform = 'none'; });
+      document.querySelectorAll('.hero-tagline.will-reveal, .hero-ctas.will-reveal').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
+      return;
+    }
     document.querySelectorAll('.hero [data-splitting]').forEach(function (el) {
       var chars = el.querySelectorAll('.char');
       gsap.to(chars, { opacity: 1, y: 0, duration: 0.6, stagger: 0.03, ease: 'power3.out', delay: 0.3 });
@@ -107,6 +115,7 @@
      Homepage Scroll Animations
      ---------------------------------------------------------- */
   function initHomepageAnimations() {
+    if (isReducedMotion) return;
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
     gsap.utils.toArray('.intro-text').forEach(function (el) {
@@ -161,6 +170,7 @@
      About Page Scroll Animations
      ---------------------------------------------------------- */
   function initAboutAnimations() {
+    if (isReducedMotion) return;
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
     var missionGrid = document.querySelector('.mission-grid');
@@ -226,6 +236,7 @@
      Contact Page Scroll Animations
      ---------------------------------------------------------- */
   function initContactAnimations() {
+    if (isReducedMotion) return;
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
     var formGroups = gsap.utils.toArray('.contact-form-card .form-group');
@@ -265,6 +276,7 @@
      Footer Scroll Animations
      ---------------------------------------------------------- */
   function initFooterAnimations() {
+    if (isReducedMotion) return;
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
     var footerCols = gsap.utils.toArray('.footer-grid > div');
@@ -296,6 +308,7 @@
      3D Tilt Cards
      ---------------------------------------------------------- */
   function initTiltCards() {
+    if (isReducedMotion) return;
     if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     document.querySelectorAll('.category-card, .value-card').forEach(function (card) {
       card.addEventListener('mousemove', function (e) {
@@ -392,6 +405,7 @@
     if (!logo) return;
     Splitting({ target: logo });
     logo.classList.add('is-revealed');
+    if (isReducedMotion) return;
     var chars = logo.querySelectorAll('.char');
     gsap.from(chars, { opacity: 0, duration: 0.4, stagger: 0.05, ease: 'power2.out', delay: 0.2 });
     logo.addEventListener('mouseenter', function () {
@@ -406,6 +420,7 @@
      Mobile Menu Stagger
      ---------------------------------------------------------- */
   function initMobileMenuStagger() {
+    if (isReducedMotion) return;
     var hamburger = document.querySelector('.nav-hamburger');
     var mobileMenu = document.querySelector('.mobile-menu');
     if (!hamburger || !mobileMenu || typeof gsap === 'undefined') return;
@@ -436,6 +451,7 @@
      Auth Page Animations
      ---------------------------------------------------------- */
   function initAuthAnimations() {
+    if (isReducedMotion) return;
     if (typeof gsap === 'undefined') return;
     var logo = document.querySelector('.login-logo');
     var tagline = document.querySelector('.login-tagline');
