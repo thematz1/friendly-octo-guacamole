@@ -394,10 +394,8 @@
   function initLogoAnimation() {
     if (typeof Splitting === 'undefined' || typeof gsap === 'undefined') return;
     var logo = document.querySelector('.nav-logo[data-splitting]');
-    if (!logo) return;
-    logo.classList.add('will-animate');
+    if (!logo || logo.querySelector('.char')) return; // already split
     Splitting({ target: logo });
-    logo.classList.add('is-revealed');
     if (isReducedMotion) return;
     var chars = logo.querySelectorAll('.char');
     gsap.from(chars, { opacity: 0, duration: 0.4, stagger: 0.05, ease: 'power2.out', delay: 0.2 });
