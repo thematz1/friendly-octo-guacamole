@@ -323,11 +323,12 @@ label {
   }
 }
 
-.nav-logo {
+.nav-logo,
+.nav-logo .char {
   font-family: 'Cormorant', serif;
   font-weight: 700;
   font-size: 1.5rem;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   text-decoration: none;
   letter-spacing: 0.05em;
 }
