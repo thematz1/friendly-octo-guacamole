@@ -221,13 +221,25 @@
      ---------------------------------------------------------- */
   function initFloatingLabels() {
     document.querySelectorAll('.form-group .form-input').forEach(function (input) {
-      if (input.value) input.classList.add('has-value');
-      input.addEventListener('input', function () {
-        if (input.value) { input.classList.add('has-value'); }
-        else { input.classList.remove('has-value'); }
-      });
+      var wrapper = input.closest('.password-wrapper');
+
+      function updateValue() {
+        if (input.value) {
+          input.classList.add('has-value');
+          if (wrapper) wrapper.classList.add('has-value');
+        } else {
+          input.classList.remove('has-value');
+          if (wrapper) wrapper.classList.remove('has-value');
+        }
+      }
+
+      updateValue();
+      input.addEventListener('input', updateValue);
       input.addEventListener('animationstart', function (e) {
-        if (e.animationName === 'onAutoFillStart') { input.classList.add('has-value'); }
+        if (e.animationName === 'onAutoFillStart') {
+          input.classList.add('has-value');
+          if (wrapper) wrapper.classList.add('has-value');
+        }
       });
     });
   }

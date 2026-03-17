@@ -1220,7 +1220,7 @@ textarea.form-input {
   position: relative;
 }
 
-.form-group label {
+.form-group:not(.form-group-select) label {
   position: absolute;
   top: 14px;
   left: 16px;
@@ -1233,15 +1233,24 @@ textarea.form-input {
   margin-bottom: 0;
 }
 
-.form-group .form-input:focus ~ label,
-.form-group .form-input.has-value ~ label {
+.form-group:not(.form-group-select) .form-input:focus ~ label,
+.form-group:not(.form-group-select) .form-input.has-value ~ label,
+.form-group:not(.form-group-select) .password-wrapper:focus-within ~ label,
+.form-group:not(.form-group-select) .password-wrapper.has-value ~ label {
   transform: translateY(-24px);
   font-size: 0.75rem;
   color: var(--gold);
 }
 
-.form-group .form-input {
+.form-group:not(.form-group-select) .form-input {
   padding-top: 16px;
+}
+
+.form-group-select label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .form-group .form-input:focus {
@@ -1309,10 +1318,27 @@ textarea.form-input {
 /* --------------------------------------------------------------------------
    Auth Page Animations
    -------------------------------------------------------------------------- */
-.login-card { will-change: transform, opacity; transform-style: preserve-3d; transition: transform 0.6s ease; }
+.login-card { will-change: transform, opacity; }
 .login-logo, .login-tagline { will-change: transform, opacity; }
-.login-card.is-flipped { transform: rotateY(180deg); }
-.login-card .form-success { backface-visibility: hidden; transform: rotateY(180deg); }
+
+.login-card .form-success {
+  animation: successReveal 0.6s ease forwards;
+}
+
+.login-card .form-success .form-success-icon {
+  color: var(--gold);
+}
+
+.login-card .form-success .form-success-icon svg {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawCheckmark 0.8s ease 0.3s forwards;
+}
+
+@keyframes successReveal {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
 
 .login-spinner {
   animation: spinnerDash 1.5s ease-in-out infinite, spinnerRotate 1.5s linear infinite;

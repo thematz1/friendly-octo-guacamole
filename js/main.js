@@ -24,8 +24,6 @@ function initMain() {
       if (form.hasAttribute('data-success-replace')) {
         var successEl = form.parentElement.querySelector('.form-success');
         if (successEl) {
-          var card = form.closest('.login-card');
-          if (card) card.classList.add('is-flipped');
           form.style.display = 'none';
           successEl.style.display = 'block';
         }
