@@ -333,6 +333,66 @@
   }
 
   /* ----------------------------------------------------------
+     Drag-to-Scroll with Momentum
+     ---------------------------------------------------------- */
+  function initDragScroll() {
+    var track = document.querySelector('.scroll-track');
+    if (!track) return;
+    var isDragging = false, startX = 0, scrollLeft = 0, velocity = 0, lastX = 0, lastTime = 0, momentumId = null;
+
+    track.addEventListener('mousedown', function (e) {
+      isDragging = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+      lastX = e.pageX; lastTime = Date.now(); velocity = 0;
+      if (momentumId) cancelAnimationFrame(momentumId);
+      track.style.cursor = 'grabbing'; track.style.scrollSnapType = 'none';
+    });
+
+    document.addEventListener('mousemove', function (e) {
+      if (!isDragging) return; e.preventDefault();
+      var x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX);
+      var now = Date.now(); var dt = now - lastTime;
+      if (dt > 0) velocity = (e.pageX - lastX) / dt;
+      lastX = e.pageX; lastTime = now;
+    });
+
+    function stopDrag() {
+      if (!isDragging) return; isDragging = false; track.style.cursor = '';
+      function momentum() {
+        if (Math.abs(velocity) < 0.01) { track.style.scrollSnapType = 'x mandatory'; return; }
+        track.scrollLeft -= velocity * 16; velocity *= 0.95;
+        momentumId = requestAnimationFrame(momentum);
+      }
+      momentum();
+    }
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('mouseleave', stopDrag);
+  }
+
+  /* ----------------------------------------------------------
+     Progress Dots
+     ---------------------------------------------------------- */
+  function initProgressDots() {
+    var track = document.querySelector('.scroll-track');
+    var wrapper = document.querySelector('.scroll-track-wrapper');
+    if (!track || !wrapper) return;
+    var cards = track.querySelectorAll('.category-card');
+    if (!cards.length) return;
+    var dotsContainer = document.createElement('div');
+    dotsContainer.className = 'scroll-dots'; dotsContainer.setAttribute('aria-hidden', 'true');
+    wrapper.parentElement.appendChild(dotsContainer);
+    cards.forEach(function (_, i) {
+      var dot = document.createElement('span');
+      dot.className = 'scroll-dot' + (i === 0 ? ' active' : '');
+      dotsContainer.appendChild(dot);
+    });
+    var dots = dotsContainer.querySelectorAll('.scroll-dot');
+    track.addEventListener('scroll', function () {
+      var index = Math.round(track.scrollLeft / 296);
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === index); });
+    }, { passive: true });
+  }
+
+  /* ----------------------------------------------------------
      Init
      ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -347,6 +407,8 @@
     initFooterAnimations();
     initFloatingLabels();
     initTiltCards();
+    initDragScroll();
+    initProgressDots();
   });
 
   // Expose for Barba re-init
@@ -367,6 +429,8 @@
       initFooterAnimations();
       initFloatingLabels();
       initTiltCards();
+      initDragScroll();
+      initProgressDots();
     },
     getLenis: function () { return lenis; }
   };
