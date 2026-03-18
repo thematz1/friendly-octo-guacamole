@@ -129,7 +129,7 @@ Used selectively on: navigation bar, login card, featured item cards, value card
 - Three-column layout:
   - Column 1: "LUXBRAND" logo text (Cormorant) + tagline "Curating luxury since 2024" (Montserrat 300)
   - Column 2: Quick links — Home, About, Contact, Login
-  - Column 3: Contact info — info@luxbrand.com, +1 (555) 000-0000, social icons (Instagram, Facebook, LinkedIn — link to `#`, inline SVG from Lucide Icons at 24x24px, not emojis)
+  - Column 3: Contact info — info@luxbrand.com, +1 (438) 502-8679, social icons (Instagram, Facebook, LinkedIn — link to `#`, inline SVG from Lucide Icons at 24x24px, not emojis)
 - Copyright: "© 2026 LuxBrand. All rights reserved."
 - Collapses to single column on mobile
 
@@ -268,7 +268,7 @@ Mobile-first approach: base styles target mobile, media queries scale up.
   - On focus: gold border + gold glow `box-shadow`
 - Right: contact details
   - Email: info@luxbrand.com
-  - Phone: +1 (555) 000-0000
+  - Phone: +1 (438) 502-8679
   - Social icons: Instagram, Facebook, LinkedIn (inline SVG from Lucide Icons at 24x24px, link to `#`)
 - Stacks to single column on mobile (form first, then details)
 
