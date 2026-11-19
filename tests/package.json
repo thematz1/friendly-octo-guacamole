@@ -1,0 +1,11 @@
+{
+  "name": "tmg-brokerage-qa",
+  "private": true,
+  "description": "Browser smoke tests for the static site. Not deployed.",
+  "scripts": {
+    "test": "node qa.js .. chromium && node qa.js .. webkit"
+  },
+  "devDependencies": {
+    "playwright": "1.58.2"
+  }
+}
