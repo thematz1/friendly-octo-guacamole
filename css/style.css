@@ -29,7 +29,7 @@
   --font-text: 'Hanken Grotesk', system-ui, sans-serif;
 
   /* Fluid type scale (max is never more than 2.5x min, so zoom still works) */
-  --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
   --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
   --step-2: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);

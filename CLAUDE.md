@@ -10,7 +10,8 @@ maintainer and QA for this repo.
   Whatever is committed is what's served.
 - CDN dependencies (pin exact versions, never `@latest`):
   - Open Props `1.7.23` — only `sizes`, `easings`, `shadows` (`--size-*`, `--ease-*`, `--shadow-*`).
-  - Google Fonts: Bodoni Moda (headlines), Hanken Grotesk (text).
+  - Google Fonts: Bodoni Moda pinned to optical size 11 (`opsz,wght@11,400..700`), Hanken Grotesk.
+    Do not load Bodoni's large optical sizes: their hairlines vanish on screen ("How" reads "I low").
 - Prefer native platform features over libraries: `popover` for the mobile nav, cross-document
   view transitions (`@view-transition`) for page changes, CSS scroll-snap for the category row,
   `:user-invalid` for form errors. Before adding any HTML/CSS/JS pattern, use the
