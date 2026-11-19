@@ -2,80 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In — LuxxBrand</title>
-  <meta name="description" content="Access your private LuxxBrand portfolio. Members-only entry to authenticated luxury pieces and white-glove brokerage services.">
-  <meta property="og:title" content="Sign In — LuxxBrand">
-  <meta property="og:description" content="Members-only access to your private portfolio">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in — TMG Brokerage</title>
+  <meta name="description" content="Sign in to your TMG Brokerage member account.">
+  <meta property="og:title" content="Sign in — TMG Brokerage">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0B1F33">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/sizes.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/easings.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/shadows.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
-<div data-barba="wrapper">
-<div data-barba="container" data-barba-namespace="login">
+<div class="auth">
+  <aside class="auth-aside">
+    <a class="brand" href="index.html" aria-label="TMG Brokerage, home"><span class="brand-mark">TMG</span><span class="brand-word">Brokerage</span></a>
+    <blockquote>Every piece authenticated. Every introduction private.</blockquote>
+    <a class="back" href="index.html">Back to the site</a>
+  </aside>
 
-<div class="login-layout">
-  <!-- Left Panel: Branding -->
-  <div class="login-branding">
-    <a href="index.html" class="login-logo">LuxxBrand</a>
-    <p class="login-tagline">Private Brokerage for Luxury Goods</p>
-  </div>
-
-  <!-- Right Panel: Sign In Form -->
-  <div class="login-form-panel">
-    <div class="login-card glass-light">
-      <h1>Welcome Back</h1>
-      <form data-fake-submit data-confirm-message="Accessing your private portfolio...">
-        <div class="form-group">
-          <input type="email" id="login-email" class="form-input" required>
+  <main class="auth-main" id="main">
+    <div class="auth-card">
+      <h1>Sign in</h1>
+      <form class="form" data-success="Member sign-in is not open yet. Please contact your broker at contact@tmgbrokerage.com." aria-describedby="login-status">
+        <div class="field">
           <label for="login-email">Email</label>
+          <input class="input" id="login-email" name="email" type="email" autocomplete="username" required>
         </div>
-        <div class="form-group">
+        <div class="field">
+          <label for="login-password">Password</label>
           <div class="password-wrapper">
-            <input type="password" id="login-password" class="form-input" required>
-            <button type="button" class="password-toggle" aria-label="Show password">
-              <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              <svg class="eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            <input class="input" id="login-password" name="password" type="password" autocomplete="current-password" required>
+            <button class="password-toggle" type="button" aria-label="Show password" aria-pressed="false">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
           </div>
-          <label for="login-password">Password</label>
         </div>
-        <button type="submit" class="btn btn-primary btn-full">Enter</button>
-        <div class="form-confirmation">
-          <svg class="login-spinner" width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="14" stroke="var(--gold)" stroke-width="2" stroke-dasharray="88" stroke-dashoffset="88" stroke-linecap="round"/>
-          </svg>
-          <span></span>
-        </div>
+        <button class="btn btn-primary btn-block" type="submit">Sign in</button>
       </form>
-      <a href="forgot-password.html" class="login-forgot">Forgot Password?</a>
-      <hr class="login-divider">
-      <p class="login-signup">Not yet a member? <a href="register.html">Request access</a></p>
+      <p id="login-status" class="form-status" role="status"></p>
+      <div class="auth-links">
+        <a href="forgot-password.html">Forgot your password?</a>
+        <p>Not a member yet? <a href="register.html">Request access</a></p>
+      </div>
     </div>
-  </div>
+  </main>
 </div>
 
-</div><!-- /container -->
-</div><!-- /wrapper -->
-
-<!-- Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://unpkg.com/splitting/dist/splitting.min.js" defer></script>
-<script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
-<script src="https://unpkg.com/three@0.169.0/build/three.min.js" defer></script>
-
-<!-- App -->
-<script src="js/main.js" defer></script>
-<script src="js/cursor.js" defer></script>
-<script src="js/animations.js" defer></script>
-<script src="js/particles.js" defer></script>
-<script src="js/transitions.js" defer></script>
 </body>
 </html>

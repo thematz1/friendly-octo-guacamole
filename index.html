@@ -2,232 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LuxxBrand — Private Luxury Brokerage</title>
-  <meta name="description" content="LuxxBrand is an invitation-only brokerage for the world's rarest luxury goods. Authenticated pieces, private clientele, uncompromising standards.">
-  <meta property="og:title" content="LuxxBrand — Private Luxury Brokerage">
-  <meta property="og:description" content="Invitation-only access to the world's rarest luxury pieces">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TMG Brokerage — Private Luxury Brokerage</title>
+  <meta name="description" content="TMG Brokerage places authenticated handbags, watches and jewelry with verified collectors, by private introduction.">
+  <meta property="og:title" content="TMG Brokerage — Private Luxury Brokerage">
+  <meta property="og:description" content="Authenticated luxury pieces, placed privately with verified collectors.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0B1F33">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/sizes.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/easings.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/shadows.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
+  <link rel="preload" as="image" href="images/product-birkin.jpg" fetchpriority="high">
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
-<a href="#main" class="sr-only">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Scroll Progress -->
-<div class="scroll-progress" aria-hidden="true"></div>
-
-<div data-barba="wrapper">
-
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" data-splitting>LuxxBrand</a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+<header class="site-header">
+  <div class="header-inner container">
+    <a class="brand" href="index.html" aria-label="TMG Brokerage, home"><span class="brand-mark">TMG</span><span class="brand-word">Brokerage</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <button class="menu-button" type="button" popovertarget="site-menu" aria-controls="site-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        <span>Menu</span>
+      </button>
+      <ul id="site-menu" class="site-menu" popover="auto">
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html">Sign in</a></li>
+        <li><a class="nav-cta" href="register.html">Request access</a></li>
       </ul>
     </nav>
-    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line class="hamburger-top" x1="4" y1="6" x2="20" y2="6"/>
-        <line class="hamburger-mid" x1="4" y1="12" x2="20" y2="12"/>
-        <line class="hamburger-bot" x1="4" y1="18" x2="20" y2="18"/>
-      </svg>
-    </button>
   </div>
 </header>
 
-<div class="mobile-overlay"></div>
-<div class="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="login.html">Login</a>
-</div>
-
-<div data-barba="container" data-barba-namespace="home">
-
 <main id="main">
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="hero-content container">
-      <h1 data-splitting>Where Rarity Meets Refinement</h1>
-      <p class="hero-tagline will-reveal">An invitation-only brokerage for collectors who accept nothing less than extraordinary</p>
-      <div class="hero-ctas will-reveal">
-        <a href="register.html" class="btn btn-primary">Request Access</a>
-        <a href="contact.html" class="btn btn-secondary">Consign a Piece</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>Rare pieces, placed privately.</h1>
+        <p>We connect verified collectors with authenticated handbags, watches and jewelry, by introduction and never by public auction.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="register.html">Request access</a>
+          <a class="btn btn-secondary" href="contact.html?subject=Consigning%20a%20piece">Consign a piece</a>
+        </div>
       </div>
-    </div>
-    <div class="scroll-indicator" aria-hidden="true">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+
+      <figure class="certificate">
+        <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="seal-ring" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+          <circle cx="60" cy="60" r="57" fill="#FFFDF8" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="34" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text font-family="Hanken Grotesk, sans-serif" font-size="10.5" font-weight="600" letter-spacing="2.4" fill="currentColor"><textPath href="#seal-ring">AUTHENTICATED · TMG BROKERAGE ·</textPath></text>
+          <text x="60" y="68" text-anchor="middle" font-family="Bodoni Moda, serif" font-size="24" font-weight="700" fill="currentColor">TMG</text>
+        </svg>
+        <img src="images/product-birkin.jpg" width="600" height="906" alt="Hermès Birkin 30 handbag" fetchpriority="high">
+        <figcaption>
+          <h2>Hermès Birkin 30</h2>
+          <dl class="cert-fields">
+            <dt>Lot</dt><dd>01</dd>
+            <dt>Provenance</dt><dd>Authenticated in-house</dd>
+            <dt>Price</dt><dd>$12,500</dd>
+            <dt>Availability</dt><dd>By introduction</dd>
+          </dl>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- Introduction Strip -->
-  <section class="section intro-strip">
+  <section class="section band-navy" aria-label="About the brokerage">
     <div class="container">
-      <p class="intro-text">LuxxBrand is not a marketplace. We are a private brokerage reserved for a select clientele — connecting those who possess extraordinary pieces with those worthy of acquiring them. Every transaction is handled with absolute discretion.</p>
+      <p class="statement">We are not a marketplace. We introduce the people who own extraordinary pieces to the people ready to acquire them, and we handle every transaction in confidence.</p>
     </div>
   </section>
 
-  <!-- Category Scroll Track -->
-  <section class="section categories">
+  <section class="section" aria-labelledby="categories-title">
     <div class="container">
-      <h2>The Collection</h2>
-      <div class="scroll-track-wrapper">
-        <button class="scroll-arrow scroll-arrow-left" aria-label="Scroll left">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="scroll-arrow scroll-arrow-right" aria-label="Scroll right">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div class="scroll-track">
-          <a href="#" class="category-card" style="background-image: url('images/category-handbags.jpg')"><span class="category-name">Handbags</span></a>
-          <a href="#" class="category-card" style="background-image: url('images/category-watches.jpg')"><span class="category-name">Watches</span></a>
-          <a href="#" class="category-card" style="background-image: url('images/category-shoes.jpg')"><span class="category-name">Shoes</span></a>
-          <a href="#" class="category-card" style="background-image: url('images/category-jewelry.jpg')"><span class="category-name">Jewelry</span></a>
-          <a href="#" class="category-card" style="background-image: url('images/category-clothing.jpg')"><span class="category-name">Designer Clothing</span></a>
-        </div>
+      <div class="section-head">
+        <h2 id="categories-title">What we place</h2>
       </div>
+      <ul class="category-list" tabindex="0" aria-label="Categories, scrollable">
+        <li class="category"><figure><img src="images/category-handbags.jpg" width="800" height="1200" alt="" loading="lazy"><figcaption>Handbags</figcaption></figure></li>
+        <li class="category"><figure><img src="images/category-watches.jpg" width="800" height="532" alt="" loading="lazy"><figcaption>Watches</figcaption></figure></li>
+        <li class="category"><figure><img src="images/category-jewelry.jpg" width="800" height="800" alt="" loading="lazy"><figcaption>Jewelry</figcaption></figure></li>
+        <li class="category"><figure><img src="images/category-shoes.jpg" width="800" height="533" alt="" loading="lazy"><figcaption>Shoes</figcaption></figure></li>
+        <li class="category"><figure><img src="images/category-clothing.jpg" width="800" height="1200" alt="" loading="lazy"><figcaption>Designer clothing</figcaption></figure></li>
+      </ul>
     </div>
   </section>
 
-  <!-- Featured Items -->
-  <section class="section featured">
+  <section class="section" aria-labelledby="lots-title">
     <div class="container">
-      <h2>Currently Available</h2>
-      <div class="featured-grid">
-
-        <div class="product-card glass-light">
-          <div class="product-image" style="background-image: url('images/product-birkin.jpg')"></div>
-          <div class="product-info">
-            <p class="product-brand">HERM&Egrave;S</p>
-            <h3 class="product-name">Birkin 30</h3>
-            <p class="product-price">$12,500</p>
-            <a href="#" class="btn btn-secondary">View Details</a>
-          </div>
-        </div>
-
-        <div class="product-card glass-light">
-          <div class="product-image" style="background-image: url('images/product-submariner.jpg')"></div>
-          <div class="product-info">
-            <p class="product-brand">ROLEX</p>
-            <h3 class="product-name">Submariner</h3>
-            <p class="product-price">$9,800</p>
-            <a href="#" class="btn btn-secondary">View Details</a>
-          </div>
-        </div>
-
-        <div class="product-card glass-light">
-          <div class="product-image" style="background-image: url('images/product-chanel.jpg')"></div>
-          <div class="product-info">
-            <p class="product-brand">CHANEL</p>
-            <h3 class="product-name">Classic Flap</h3>
-            <p class="product-price">$8,200</p>
-            <a href="#" class="btn btn-secondary">View Details</a>
-          </div>
-        </div>
-
-        <div class="product-card glass-light">
-          <div class="product-image" style="background-image: url('images/product-bracelet.jpg')"></div>
-          <div class="product-info">
-            <p class="product-brand">CARTIER</p>
-            <h3 class="product-name">Love Bracelet</h3>
-            <p class="product-price">$6,900</p>
-            <a href="#" class="btn btn-secondary">View Details</a>
-          </div>
-        </div>
-
+      <div class="section-head">
+        <h2 id="lots-title">Currently available</h2>
+        <p>Each piece has been authenticated by our specialists. Enquire and a broker will arrange a private viewing.</p>
       </div>
+      <ol class="lots">
+        <li class="lot">
+          <img src="images/product-birkin.jpg" width="600" height="906" alt="" loading="lazy">
+          <span class="lot-number">Lot 01</span>
+          <p class="lot-name"><small>Hermès</small>Birkin 30</p>
+          <span class="lot-price">$12,500</span>
+          <a href="contact.html?subject=Lot%2001%3A%20Herm%C3%A8s%20Birkin%2030">Enquire<span class="visually-hidden"> about the Hermès Birkin 30</span></a>
+        </li>
+        <li class="lot">
+          <img src="images/product-submariner.jpg" width="600" height="397" alt="" loading="lazy">
+          <span class="lot-number">Lot 02</span>
+          <p class="lot-name"><small>Rolex</small>Submariner</p>
+          <span class="lot-price">$9,800</span>
+          <a href="contact.html?subject=Lot%2002%3A%20Rolex%20Submariner">Enquire<span class="visually-hidden"> about the Rolex Submariner</span></a>
+        </li>
+        <li class="lot">
+          <img src="images/product-chanel.jpg" width="600" height="900" alt="" loading="lazy">
+          <span class="lot-number">Lot 03</span>
+          <p class="lot-name"><small>Chanel</small>Classic Flap</p>
+          <span class="lot-price">$8,200</span>
+          <a href="contact.html?subject=Lot%2003%3A%20Chanel%20Classic%20Flap">Enquire<span class="visually-hidden"> about the Chanel Classic Flap</span></a>
+        </li>
+        <li class="lot">
+          <img src="images/product-bracelet.jpg" width="600" height="544" alt="" loading="lazy">
+          <span class="lot-number">Lot 04</span>
+          <p class="lot-name"><small>Cartier</small>Love Bracelet</p>
+          <span class="lot-price">$6,900</span>
+          <a href="contact.html?subject=Lot%2004%3A%20Cartier%20Love%20Bracelet">Enquire<span class="visually-hidden"> about the Cartier Love Bracelet</span></a>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <!-- Trust Banner -->
-  <section class="section trust-banner">
+  <section class="section band-navy" aria-labelledby="principles-title">
     <div class="container">
-      <div class="trust-grid">
-        <div class="trust-item">
-          <div class="trust-line"></div>
-          <h3>Certified Provenance</h3>
-          <p>Every piece undergoes a rigorous multi-point authentication by our in-house specialists. We reject over 80% of submissions — only the genuine reach our clients.</p>
-        </div>
-        <div class="trust-item">
-          <div class="trust-line"></div>
-          <h3>White-Glove Service</h3>
-          <p>From encrypted escrow payments to fully insured private courier delivery, every detail of your transaction is handled with the discretion you expect.</p>
-        </div>
-        <div class="trust-item">
-          <div class="trust-line"></div>
-          <h3>By Invitation Only</h3>
-          <p>Our collection is not open to the public. Membership is granted after a personal review, ensuring an environment of trust and exclusivity for every client.</p>
-        </div>
+      <div class="section-head">
+        <h2 id="principles-title">How we work</h2>
       </div>
+      <dl class="principles">
+        <div>
+          <dt>Certified provenance</dt>
+          <dd>Every piece goes through multi-point authentication by our in-house specialists. We reject over 80% of submissions, so only genuine pieces reach our clients.</dd>
+        </div>
+        <div>
+          <dt>White-glove service</dt>
+          <dd>From encrypted escrow payments to fully insured private courier delivery, every detail of your transaction is handled with discretion.</dd>
+        </div>
+        <div>
+          <dt>By invitation only</dt>
+          <dd>Our collection is not open to the public. Membership follows a personal review, so every client deals with people they can trust.</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-grid container">
-    <div>
-      <span class="footer-logo">LuxxBrand</span>
-      <p class="footer-tagline">By invitation only</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <p>info@LuxxBrand.com</p>
-      <p>+1 (438) 502-8679</p>
-      <div class="footer-social" style="display: none;">
-        <a href="#" aria-label="Follow us on Instagram">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="#" aria-label="Follow us on Facebook">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="#" aria-label="Follow us on LinkedIn">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="TMG Brokerage, home"><span class="brand-mark">TMG</span><span class="brand-word">Brokerage</span></a>
+        <p class="footer-note">Private brokerage for luxury goods. By invitation only.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <address>
+          <span>Tyrell Gerald</span>
+          <a href="mailto:contact@tmgbrokerage.com">contact@tmgbrokerage.com</a>
+          <a href="tel:+14389366749">+1 (438) 936-6749</a>
+          <span>7480 Chemin Small, Côte Saint-Luc, QC H4W 1N2</span>
+        </address>
       </div>
     </div>
+    <p class="footer-legal">&copy; 2026 TMG Brokerage. All rights reserved.</p>
   </div>
-  <p class="footer-copyright">&copy; 2026 LuxxBrand. All rights reserved.</p>
 </footer>
 
-</div><!-- /container -->
-</div><!-- /wrapper -->
-
-<!-- Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-
-<script src="https://unpkg.com/splitting/dist/splitting.min.js" defer></script>
-<script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
-<script src="https://unpkg.com/three@0.169.0/build/three.min.js" defer></script>
-
-<!-- App -->
-<script src="js/main.js" defer></script>
-<script src="js/cursor.js" defer></script>
-<script src="js/animations.js" defer></script>
-<script src="js/particles.js" defer></script>
-<script src="js/transitions.js" defer></script>
 </body>
 </html>

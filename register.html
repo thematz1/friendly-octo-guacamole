@@ -2,105 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request Access — LuxxBrand</title>
-  <meta name="description" content="Request membership to LuxxBrand's private brokerage. Access is granted by invitation after a personal review.">
-  <meta property="og:title" content="Request Access — LuxxBrand">
-  <meta property="og:description" content="Apply for membership to our private luxury brokerage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request access — TMG Brokerage</title>
+  <meta name="description" content="Request membership to TMG Brokerage. Access is granted after a personal review.">
+  <meta property="og:title" content="Request access — TMG Brokerage">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0B1F33">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/sizes.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/easings.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/shadows.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
-<div data-barba="wrapper">
-<div data-barba="container" data-barba-namespace="register">
+<div class="auth">
+  <aside class="auth-aside">
+    <a class="brand" href="index.html" aria-label="TMG Brokerage, home"><span class="brand-mark">TMG</span><span class="brand-word">Brokerage</span></a>
+    <blockquote>Membership follows a personal review. We reply within 48 hours.</blockquote>
+    <a class="back" href="index.html">Back to the site</a>
+  </aside>
 
-<div class="login-layout">
-  <!-- Left Panel: Branding -->
-  <div class="login-branding">
-    <a href="index.html" class="login-logo">LuxxBrand</a>
-    <p class="login-tagline">Private Brokerage for Luxury Goods</p>
-  </div>
-
-  <!-- Right Panel: Registration Form -->
-  <div class="login-form-panel">
-    <div class="login-card glass-light">
-      <h1>Request Membership</h1>
-      <form data-fake-submit data-success-replace>
-        <div class="form-group">
-          <input type="text" id="reg-first" class="form-input" required>
-          <label for="reg-first">First Name</label>
+  <main class="auth-main" id="main">
+    <div class="auth-card">
+      <h1>Request access</h1>
+      <p class="lede">Tell us a little about yourself and what you collect. A broker will review your request personally.</p>
+      <form class="form" data-formspree data-success="Request received. A member of our private client team will review it and contact you within 48 hours." aria-describedby="register-status">
+        <input type="hidden" name="_subject" value="New access request from tmgbrokerage.com">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <div class="field-row">
+          <div class="field">
+            <label for="reg-first">First name</label>
+            <input class="input" id="reg-first" name="given-name" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="reg-last">Last name</label>
+            <input class="input" id="reg-last" name="family-name" type="text" autocomplete="family-name" required>
+          </div>
         </div>
-        <div class="form-group">
-          <input type="text" id="reg-last" class="form-input" required>
-          <label for="reg-last">Last Name</label>
-        </div>
-        <div class="form-group">
-          <input type="email" id="reg-email" class="form-input" required>
+        <div class="field">
           <label for="reg-email">Email</label>
+          <input class="input" id="reg-email" name="email" type="email" autocomplete="email" required>
         </div>
-        <div class="form-group">
-          <input type="tel" id="reg-phone" class="form-input">
-          <label for="reg-phone">Phone</label>
+        <div class="field">
+          <label for="reg-phone">Phone <span class="hint">(optional)</span></label>
+          <input class="input" id="reg-phone" name="tel" type="tel" autocomplete="tel">
         </div>
-        <div class="form-group form-group-select">
-          <label for="reg-interest">Area of Interest</label>
-          <select id="reg-interest" class="form-input">
-            <option value="">Select a category</option>
+        <div class="field">
+          <label for="reg-interest">What do you collect?</label>
+          <select class="input" id="reg-interest" name="interest">
+            <option value="">Choose a category</option>
             <option value="handbags">Handbags</option>
             <option value="watches">Watches</option>
             <option value="jewelry">Jewelry</option>
             <option value="shoes">Shoes</option>
-            <option value="clothing">Designer Clothing</option>
-            <option value="multiple">Multiple Categories</option>
+            <option value="clothing">Designer clothing</option>
+            <option value="multiple">Several categories</option>
           </select>
         </div>
-        <div class="form-group">
-          <div class="password-wrapper">
-            <input type="password" id="reg-password" class="form-input" required>
-            <button type="button" class="password-toggle" aria-label="Show password">
-              <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              <svg class="eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-            </button>
-          </div>
-          <label for="reg-password">Password</label>
-        </div>
-        <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+        <button class="btn btn-primary btn-block" type="submit">Send request</button>
       </form>
-      <div class="form-success" style="display: none">
-        <div class="form-success-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <h2>Request Received</h2>
-        <p>Thank you for your interest in LuxxBrand. A member of our private client team will personally review your application and reach out within 48 hours to discuss next steps.</p>
-        <a href="index.html" class="btn btn-secondary" style="margin-top: 24px">Return to LuxxBrand</a>
+      <p id="register-status" class="form-status" role="status"></p>
+      <div class="auth-links">
+        <p>Already a member? <a href="login.html">Sign in</a></p>
       </div>
-      <hr class="login-divider">
-      <p class="login-signup">Already a member? <a href="login.html">Sign in</a></p>
     </div>
-  </div>
+  </main>
 </div>
 
-</div><!-- /container -->
-</div><!-- /wrapper -->
-
-<!-- Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://unpkg.com/splitting/dist/splitting.min.js" defer></script>
-<script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
-<script src="https://unpkg.com/three@0.169.0/build/three.min.js" defer></script>
-
-<!-- App -->
-<script src="js/main.js" defer></script>
-<script src="js/cursor.js" defer></script>
-<script src="js/animations.js" defer></script>
-<script src="js/particles.js" defer></script>
-<script src="js/transitions.js" defer></script>
 </body>
 </html>

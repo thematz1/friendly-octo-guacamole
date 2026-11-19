@@ -2,154 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — LuxxBrand</title>
-  <meta name="description" content="LuxxBrand — an invitation-only brokerage built on provenance, discretion, and an uncompromising eye for the extraordinary.">
-  <meta property="og:title" content="About — LuxxBrand">
-  <meta property="og:description" content="Provenance, discretion, and an uncompromising eye for the extraordinary">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — TMG Brokerage</title>
+  <meta name="description" content="TMG Brokerage is a private brokerage built on provenance, discretion and a careful eye for exceptional pieces.">
+  <meta property="og:title" content="About — TMG Brokerage">
+  <meta property="og:description" content="A private brokerage built on provenance and discretion.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0B1F33">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/sizes.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/easings.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-props@1.7.23/shadows.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
-<a href="#main" class="sr-only">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Scroll Progress -->
-<div class="scroll-progress" aria-hidden="true"></div>
-
-<div data-barba="wrapper">
-
-<header class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" data-splitting>LuxxBrand</a>
-    <nav>
-      <ul class="nav-links">
+<header class="site-header">
+  <div class="header-inner container">
+    <a class="brand" href="index.html" aria-label="TMG Brokerage, home"><span class="brand-mark">TMG</span><span class="brand-word">Brokerage</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <button class="menu-button" type="button" popovertarget="site-menu" aria-controls="site-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        <span>Menu</span>
+      </button>
+      <ul id="site-menu" class="site-menu" popover="auto">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html">Sign in</a></li>
+        <li><a class="nav-cta" href="register.html">Request access</a></li>
       </ul>
     </nav>
-    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line class="hamburger-top" x1="4" y1="6" x2="20" y2="6"/>
-        <line class="hamburger-mid" x1="4" y1="12" x2="20" y2="12"/>
-        <line class="hamburger-bot" x1="4" y1="18" x2="20" y2="18"/>
-      </svg>
-    </button>
   </div>
 </header>
 
-<div class="mobile-overlay"></div>
-<div class="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="login.html">Login</a>
-</div>
-
-<div data-barba="container" data-barba-namespace="about">
-
 <main id="main">
 
-  <!-- Hero -->
-  <section class="hero hero-short">
-    <div class="hero-content container">
-      <h1 data-splitting>The House</h1>
-      <p class="hero-tagline will-reveal">Built on provenance, discretion, and an uncompromising eye for the extraordinary</p>
+  <section class="page-intro">
+    <div class="container">
+      <h1>The house</h1>
+      <p>Built on provenance, discretion and a careful eye for exceptional pieces.</p>
     </div>
   </section>
 
-  <!-- Mission -->
   <section class="section">
-    <div class="container">
-      <div class="mission-grid">
-        <div>
-          <p>LuxxBrand was founded on a simple conviction: the world's finest pieces deserve a private stage — not a public auction. We operate as a closed brokerage, matching verified collectors with authenticated rarities through personal consultation. Our clients don't browse — they're presented with opportunities selected specifically for them. Every piece we handle carries a complete provenance record, and every transaction unfolds under absolute confidentiality.</p>
-        </div>
-        <div>
-          <div class="placeholder-image"></div>
-        </div>
+    <div class="container split">
+      <div class="prose">
+        <p>TMG Brokerage was founded on a simple conviction: the world's finest pieces deserve a private stage, not a public auction.</p>
+        <p>We operate as a closed brokerage, matching verified collectors with authenticated pieces through personal consultation. Our clients don't browse. We present them with opportunities selected for them.</p>
+        <p>Every piece we handle carries a complete provenance record, and every transaction stays confidential.</p>
       </div>
+      <img src="images/about-mission.jpg" width="800" height="552" alt="">
     </div>
   </section>
 
-  <!-- Values -->
-  <section class="section">
+  <section class="section band-navy" aria-labelledby="values-title">
     <div class="container">
-      <div class="values-grid">
-        <div class="value-card glass-light">
-          <h3>Provenance First</h3>
-          <p>We reject what we cannot verify. Our multi-point authentication process traces every piece back to its origin — no exceptions, no shortcuts.</p>
-        </div>
-        <div class="value-card glass-light">
-          <h3>Absolute Discretion</h3>
-          <p>Our clients' identities and collections remain private. No public listings, no open bidding — only confidential, broker-facilitated introductions.</p>
-        </div>
-        <div class="value-card glass-light">
-          <h3>Selective Membership</h3>
-          <p>Access is earned, not purchased. Every client undergoes a personal review to maintain an environment of mutual trust and shared standards.</p>
-        </div>
+      <div class="section-head">
+        <h2 id="values-title">What we hold to</h2>
       </div>
+      <dl class="principles">
+        <div>
+          <dt>Provenance first</dt>
+          <dd>We reject what we cannot verify. Our multi-point authentication traces every piece back to its origin, with no exceptions.</dd>
+        </div>
+        <div>
+          <dt>Discretion</dt>
+          <dd>Our clients' identities and collections stay private. No public listings and no open bidding, only confidential introductions arranged by a broker.</dd>
+        </div>
+        <div>
+          <dt>Selective membership</dt>
+          <dd>Access is earned, not purchased. Every client has a personal review, so members share the same standards.</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
 </main>
 
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-grid container">
-    <div>
-      <span class="footer-logo">LuxxBrand</span>
-      <p class="footer-tagline">By invitation only</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <p>info@LuxxBrand.com</p>
-      <p>+1 (438) 502-8679</p>
-      <div class="footer-social" style="display: none;">
-        <a href="#" aria-label="Follow us on Instagram">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="#" aria-label="Follow us on Facebook">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="#" aria-label="Follow us on LinkedIn">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" aria-label="TMG Brokerage, home"><span class="brand-mark">TMG</span><span class="brand-word">Brokerage</span></a>
+        <p class="footer-note">Private brokerage for luxury goods. By invitation only.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Sign in</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <address>
+          <span>Tyrell Gerald</span>
+          <a href="mailto:contact@tmgbrokerage.com">contact@tmgbrokerage.com</a>
+          <a href="tel:+14389366749">+1 (438) 936-6749</a>
+          <span>7480 Chemin Small, Côte Saint-Luc, QC H4W 1N2</span>
+        </address>
       </div>
     </div>
+    <p class="footer-legal">&copy; 2026 TMG Brokerage. All rights reserved.</p>
   </div>
-  <p class="footer-copyright">&copy; 2026 LuxxBrand. All rights reserved.</p>
 </footer>
 
-</div><!-- /container -->
-</div><!-- /wrapper -->
-
-<!-- Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://unpkg.com/splitting/dist/splitting.min.js" defer></script>
-<script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js" defer></script>
-
-<!-- App -->
-<script src="js/main.js" defer></script>
-<script src="js/cursor.js" defer></script>
-<script src="js/animations.js" defer></script>
-<script src="js/transitions.js" defer></script>
 </body>
 </html>
