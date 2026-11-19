@@ -31,6 +31,16 @@ maintainer and QA for this repo.
 - Design rules: one motion moment per page (home: certificate + seal). Sentence-case headings,
   no all-caps labels, no `→` on links. Lots are numbered because they are identifiers.
 
+## Images and legal
+
+- All images in `images/` are AI-generated (Z-Image-Turbo, Apache-2.0) on 2026-11-19, of **unbranded**
+  goods. The old stock photos had no recorded licence and were removed.
+- Never name a real brand (Hermès, Rolex, Chanel, Cartier, …) next to a photo that isn't that exact
+  item, and never use logos or signature designs (Birkin lock and straps, quilted chain bags, red
+  soles, screw-motif bracelets). Lots are placeholders: generic names, "Price on request".
+- No people in images (model releases). Real inventory should use the owner's own photos.
+- Still to make: shoes and clothing category images (only 3 categories are shown for now).
+
 ## Known limitations
 
 - **Forms:** the contact and request-access forms (`data-formspree`) post to Formspree once

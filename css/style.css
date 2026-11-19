@@ -172,11 +172,14 @@ address { font-style: normal; }
 
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.4em;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
   color: var(--navy);
 }
+.brand-seal { inline-size: 2.5rem; block-size: 2.5rem; flex: none; }
+.brand-text { display: inline-flex; align-items: baseline; gap: 0.4em; }
+@media (max-width: 24rem) { .site-header .brand-word { display: none; } }
 .brand-mark { font: 700 1.6rem/1 var(--font-display); letter-spacing: 0.02em; }
 .brand-word { font: 500 var(--step--1)/1 var(--font-text); letter-spacing: 0.08em; color: var(--slate); }
 
@@ -359,7 +362,7 @@ address { font-style: normal; }
 }
 .category-list > li { scroll-snap-align: start; }
 @media (min-width: 60rem) {
-  .category-list { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); overflow: visible; }
+  .category-list { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; }
 }
 .category figure { margin: 0; }
 .category img {

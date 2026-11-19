@@ -78,8 +78,8 @@ function findExe(prefix, rel) {
   {
     const ctx = await browser.newContext();
     const page = await ctx.newPage();
-    await page.goto(url('contact', '?subject=Lot%2001%3A%20Herm%C3%A8s%20Birkin%2030'));
-    check((await page.inputValue('#subject')) === 'Lot 01: Hermès Birkin 30', 'contact: subject prefilled from lot link');
+    await page.goto(url('contact', '?subject=Lot%2001%3A%20Leather%20bucket%20bag'));
+    check((await page.inputValue('#subject')) === 'Lot 01: Leather bucket bag', 'contact: subject prefilled from lot link');
     await page.click('button[type=submit]');
     check(await page.isVisible('form'), 'contact: empty submit is blocked by required fields');
     await page.fill('#name', 'QA Test');
