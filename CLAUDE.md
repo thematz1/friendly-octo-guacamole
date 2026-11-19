@@ -16,6 +16,9 @@ maintainer and QA for this repo.
   view transitions (`@view-transition`) for page changes, CSS scroll-snap for the category row,
   `:user-invalid` for form errors. Before adding any HTML/CSS/JS pattern, use the
   `modern-web-guidance` skill (`.claude/skills/`) and follow its fallback rules.
+- Cache busting: pages link `css/style.css`, `js/site.js` and `images/favicon.svg` with `?v=<date+letter>`.
+  **Bump that value in all 6 pages whenever one of those files changes**, or browsers keep the old copy
+  (GitHub Pages sends `max-age=600`, and browsers cache favicons for much longer).
 - Header and footer markup is duplicated in `index.html`, `about.html`, `contact.html`;
   the auth layout is duplicated in `login.html`, `register.html`, `forgot-password.html`.
   **Change all copies together.** Each page sets `aria-current="page"` on its own nav link.

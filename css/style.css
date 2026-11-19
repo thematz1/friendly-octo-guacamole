@@ -361,7 +361,7 @@ address { font-style: normal; }
   scrollbar-color: var(--gold-ink) transparent;
 }
 .category-list > li { scroll-snap-align: start; }
-@media (min-width: 60rem) {
+@media (min-width: 36rem) {
   .category-list { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; }
 }
 .category figure { margin: 0; }
