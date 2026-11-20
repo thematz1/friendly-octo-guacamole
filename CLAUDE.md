@@ -26,7 +26,7 @@ maintainer and QA for this repo.
 ## Brand
 
 - Name: **TMG Brokerage** (one T). Domain and email: `tmgbrokerage.com`, `contact@tmgbrokerage.com`.
-- Contact: Tyrell Gerald · +1 (438) 936-6749 (`tel:+14389366749`) · 7480 Chemin Small, Côte Saint-Luc, QC H4W 1N2.
+- Contact: Tyrell Gerald · +1 (438) 936-6749 (`tel:+14389366749`) · 2234 N Federal Hwy, Boca Raton, FL 33431, USA.
   The street name "Chemin Small" is the owner's wording; not yet confirmed.
 - Palette (tokens at the top of `css/style.css`): navy `#0B1F33` / champagne `#D4B26A` / ivory `#F7F4EE`,
   roughly 60% ivory, 30% navy, 10% gold. Gold is too light for text on ivory — use `--gold-ink`.
